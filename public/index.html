@@ -7,16 +7,17 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <h1>🚀 Project Tracker is running!</h1>
-  <p>If you see this page, the server works.</p>
-  <button id="testApi">Test API</button>
-  <p id="apiResult"></p>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <p>Redirecting...</p>
+  </div>
   <script>
-    document.getElementById('testApi').addEventListener('click', async () => {
-      const res = await fetch('/api/test');
-      const data = await res.json();
-      document.getElementById('apiResult').textContent = data.message;
-    });
+    // Check if the user is already logged in
+    const token = localStorage.getItem('token');
+    if (token) {
+      window.location.href = '/dashboard.html';
+    } else {
+      window.location.href = '/login.html';
+    }
   </script>
 </body>
 </html>
